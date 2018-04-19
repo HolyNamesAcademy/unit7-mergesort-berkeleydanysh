@@ -71,6 +71,16 @@ public class Main {
      * @param hi the index of the last element in the second range + 1.
      */
     public static void merge(ArrayList<Integer> arrayList, int lo, int mid, int hi) {
-        throw new UnsupportedOperationException("merge() has not been implemented yet");
+        int x = lo;
+        int y = mid;
+        int z = hi;
+
+        while (lo < mid && mid < hi) {
+            String[] newArr = new String[hi-lo+1];
+            for (int i = 0; i < newArr.length; i++){
+                if ()
+            }
+
+        }
     }
-}
+    }
