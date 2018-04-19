@@ -71,16 +71,25 @@ public class Main {
      * @param hi the index of the last element in the second range + 1.
      */
     public static void merge(ArrayList<Integer> arrayList, int lo, int mid, int hi) {
-        int x = lo;
-        int y = mid;
-        int z = hi;
+        int[] newArr = new int[arrayList.size()];
+        for (int i = lo; i <= hi; i++) {
+            newArr[i] = arrayList.get(i);
+        }
 
-        while (lo < mid && mid < hi) {
-            String[] newArr = new String[hi-lo+1];
-            for (int i = 0; i < newArr.length; i++){
-                if ()
+        int newArrLeft = lo;
+        int newArrRight = mid+1;
+        int current = lo;
+
+        while (newArrLeft <= mid && newArrRight <= hi) {
+            if(newArr[newArrLeft] <= newArr[newArrRight]){
+                arrayList.set(current, newArr[newArrLeft]);
+                newArrLeft++;
+
+            }else{
+                arrayList.set(current, newArr[newArrRight]);
+                newArrRight++;
             }
-
+            current ++;
         }
     }
     }
