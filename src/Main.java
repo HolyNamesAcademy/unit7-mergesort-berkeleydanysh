@@ -85,11 +85,18 @@ public class Main {
                 arrayList.set(current, newArr[newArrLeft]);
                 newArrLeft++;
 
-            }else{
+            }
+
+            else {
                 arrayList.set(current, newArr[newArrRight]);
                 newArrRight++;
             }
             current ++;
+        }
+
+        int remaining = mid - newArrLeft;
+        for (int i = 0; i <= remaining; i++) {
+            arrayList.set(current+i, newArr[newArrLeft+ i]);
         }
     }
     }
