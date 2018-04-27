@@ -14,7 +14,18 @@ public class Main {
      * @param arrayList the ArrayList to be sorted. arrayList cannot contain duplicates
      */
     public static void selectionSort(ArrayList<Integer> arrayList) {
-        throw new UnsupportedOperationException("SelectionSort() has not been implemented yet");
+        for (int i = 0; i < arrayList.size() - 1; i++)
+        {
+            int index = i;
+            for (int j = i + 1; j < arrayList.size(); j++) {
+                if (arrayList.get(j) < arrayList.get(index))
+                    index = j;
+            }
+
+            int smallerNumber = arrayList.get(index);
+            arrayList.set(index, arrayList.get(i));
+            arrayList.set(i, smallerNumber);
+        }
     }
 
     /**
@@ -24,7 +35,11 @@ public class Main {
      * @param value the value we are looking for in the array list
      */
     public static int linearSearch(ArrayList<Integer> arrayList, int value) {
-        throw new UnsupportedOperationException("LinearSearch() has not been implemented yet");
+        for (int i = 0; i < arrayList.size(); i++) {
+            if (arrayList.get(i) == value)
+                return i;
+        }
+        return -1;
     }
 
     /**
@@ -47,7 +62,7 @@ public class Main {
                 low = middle +1;
             } else if (value < arrayList.get(middle)){
                 high = middle -1;
-            } else { 
+            } else {
                 return arrayList.indexOf(value);
             }
         }
