@@ -35,7 +35,23 @@ public class Main {
      * @param value the value we are looking for in the array list
      */
     public static int binarySearch(ArrayList<Integer> arrayList, int value) {
-        throw new UnsupportedOperationException("LinearSearch() has not been implemented yet");
+        if (arrayList.size() == 0) {
+            return -1;
+        }
+        int low = 0;
+        int high = (arrayList.size() - 1);
+
+        while(low <= high ) {
+            int middle = (low+high) /2;
+            if (value > arrayList.get(middle) ){
+                low = middle +1;
+            } else if (value < arrayList.get(middle)){
+                high = middle -1;
+            } else { 
+                return arrayList.indexOf(value);
+            }
+        }
+        return -1;
     }
 
     /**
@@ -44,7 +60,8 @@ public class Main {
      * @param arrayList the ArrayList to be sorted. arrayList cannot contain duplicates
      */
     public static void mergeSort(ArrayList<Integer> arrayList) {
-        throw new UnsupportedOperationException("mergeSort() has not been implemented yet");
+        sort(arrayList, 0, arrayList.size());
+        merge(arrayList,0, arrayList.size()/2, arrayList.size());
     }
 
     /**
@@ -57,7 +74,12 @@ public class Main {
      * @param hi the index of the last element in the range + 1.
      */
     public static void sort(ArrayList<Integer> arrayList, int lo, int hi) {
-        throw new UnsupportedOperationException("sort() has not been implemented yet");
+        if(hi - lo <= 1)
+            return;
+        int mid = (hi + lo) / 2;
+        sort(arrayList, lo, mid);
+        sort(arrayList, mid, hi);
+        merge(arrayList, lo, mid, hi);
     }
 
     /**
